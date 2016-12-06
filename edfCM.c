@@ -53,8 +53,8 @@ parsehead(FILE *p_str, meta *meta_curr)
     meta_curr->headlen = headlen * READBYTES;
     if ( meta_curr->depth != 1 && meta_curr->depth != 2
          && meta_curr->depth != 4 ) {
-        printf("Depth must be only 1, 2, or 4, but got: %d\n",
-               meta_curr->depth);
+        fprintf(stderr, "Depth must be only 1, 2, or 4, but got: %d\n",
+                meta_curr->depth);
         exit(1);
     }
     if ( dim1 % (READBYTES / meta_curr->depth) ) {
