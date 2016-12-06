@@ -1,7 +1,7 @@
-/*-----------------------------------------------
-Written by Leonid Bloch (c) 2016
-Distributed under GPLv2
------------------------------------------------*/
+/************************************************
+* Written by Leonid Bloch (c) 2016
+* Distributed under GPLv2
+************************************************/
 
 #include <stdio.h>
 #include <stdint.h>
