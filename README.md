@@ -24,6 +24,26 @@ In this case each file contains one image:
 cat file1.edf file2.edf file3.edf | ./edfCM 3
 ```
 
+### Plotting
+
+There is an option to plot the results, using the auxiliary **edfCMp** script.
+An installation of [gnuplot](http://gnuplot.sourceforge.net/) is required for
+that.
+
+#### Examples
+
+* To plot, pipe the output of **edfCM** to **edfCMp**:
+
+```sh
+cat file1.edf file2.edf file3.edf | ./edfCM 3 | ./edfCMp
+```
+
+* To still get the output in the terminal window and simultaneously get the plot,
+do:
+
+```sh
+cat file1.edf file2.edf file3.edf | ./edfCM 3 | tee >(./edfCMp)
+```
 
 ## Licensing
 

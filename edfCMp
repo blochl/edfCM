@@ -1,0 +1,25 @@
+#!/bin/bash
+
+DATA=$(cat)
+
+gnuplot <<EOF
+set terminal x11 persist
+
+set datafile separator ","
+set ytics nomirror
+set size 1,0.5
+
+set multiplot
+
+set origin 0,0
+plot '-' u 2 w l lc rgb "red" t "Y"
+${DATA}
+e
+set origin 0,0.5
+set xtics format ""
+plot '-' u 1 w l lc rgb "blue" t "X"
+${DATA}
+e
+
+unset multiplot
+EOF
