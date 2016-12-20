@@ -45,6 +45,26 @@ do:
 cat file1.edf file2.edf file3.edf | ./edfCM 3 | tee >(./edfCMp)
 ```
 
+## Limitations
+
+For now, only EDFs with the same endianness as the CPU are handled correctly,
+just because all is currently needed is to process little-endian EDFs on x86
+CPUs.
+
+To check the endianness of the EDF, do:
+
+```sh
+head -c 8192 path/to/file.edf | grep -a "ByteOrder"
+# LowByteFirst ⇒ little endian.
+```
+
+To check the endianness of the CPU, do:
+
+```sh
+printf I | hexdump -o | awk '{ print substr($2,6,1); exit}'
+# 1 ⇒ little endian, 0 ⇒ big endian.
+```
+
 ## Licensing
 
 Distributed under GPLv2.
