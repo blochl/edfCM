@@ -61,7 +61,7 @@ head -c 8192 path/to/file.edf | grep -a "ByteOrder"
 To check the endianness of the CPU, do:
 
 ```sh
-printf I | hexdump -o | awk '{ print substr($2,6,1); exit}'
+printf I | od -o | awk '{ print substr($2,6,1); exit}'
 # 1 ⇒ little endian, 0 ⇒ big endian.
 ```
 
